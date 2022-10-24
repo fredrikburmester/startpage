@@ -421,72 +421,72 @@ const assets = {
   "/_nuxt/_plugin-vue_export-helper.a1a6add7.js": {
     "type": "application/javascript",
     "etag": "\"5b-eFCz/UrraTh721pgAl0VxBNR1es\"",
-    "mtime": "2022-10-24T18:05:58.276Z",
+    "mtime": "2022-10-24T20:30:00.779Z",
     "size": 91,
     "path": "../public/_nuxt/_plugin-vue_export-helper.a1a6add7.js"
   },
-  "/_nuxt/default.cd16c06b.js": {
+  "/_nuxt/default.23e3eb88.js": {
     "type": "application/javascript",
-    "etag": "\"273-R8sC0RRsTrYLd63VPYZRzFDygV4\"",
-    "mtime": "2022-10-24T18:05:58.275Z",
-    "size": 627,
-    "path": "../public/_nuxt/default.cd16c06b.js"
+    "etag": "\"111a-MN6u8ooTxc53vYbmgnO8dVc4R9s\"",
+    "mtime": "2022-10-24T20:30:00.777Z",
+    "size": 4378,
+    "path": "../public/_nuxt/default.23e3eb88.js"
   },
-  "/_nuxt/entry.0cc77f9a.css": {
+  "/_nuxt/entry.cb459b48.js": {
+    "type": "application/javascript",
+    "etag": "\"2270c-FSjiF+fDMZU81Vb8w46/qS3AMmE\"",
+    "mtime": "2022-10-24T20:30:00.776Z",
+    "size": 141068,
+    "path": "../public/_nuxt/entry.cb459b48.js"
+  },
+  "/_nuxt/entry.dcd9e625.css": {
     "type": "text/css; charset=utf-8",
-    "etag": "\"82fc-Vg2limMW2sTE6tI2A5Sg6YULQVQ\"",
-    "mtime": "2022-10-24T18:05:58.274Z",
-    "size": 33532,
-    "path": "../public/_nuxt/entry.0cc77f9a.css"
-  },
-  "/_nuxt/entry.39f3e4fe.js": {
-    "type": "application/javascript",
-    "etag": "\"20a5d-bIE+BwZJxnAIOEFUtUeEQPW1qk0\"",
-    "mtime": "2022-10-24T18:05:58.273Z",
-    "size": 133725,
-    "path": "../public/_nuxt/entry.39f3e4fe.js"
+    "etag": "\"c75e-tXCQCuJauMhdp0Fd4oXfYNrcOUo\"",
+    "mtime": "2022-10-24T20:30:00.775Z",
+    "size": 51038,
+    "path": "../public/_nuxt/entry.dcd9e625.css"
   },
   "/_nuxt/error-404.18ced855.css": {
     "type": "text/css; charset=utf-8",
     "etag": "\"e2e-F8gJ3uSz6Dg2HRyb374Ax3RegKE\"",
-    "mtime": "2022-10-24T18:05:58.272Z",
+    "mtime": "2022-10-24T20:30:00.775Z",
     "size": 3630,
     "path": "../public/_nuxt/error-404.18ced855.css"
   },
-  "/_nuxt/error-404.480a265d.js": {
+  "/_nuxt/error-404.7c931550.js": {
     "type": "application/javascript",
-    "etag": "\"8e2-6LU/ljUz3/Zav8MoC6xyk6tsw+w\"",
-    "mtime": "2022-10-24T18:05:58.272Z",
+    "etag": "\"8e2-eKOQIUOXgSURpY7lr+4gOQ3QUCQ\"",
+    "mtime": "2022-10-24T20:30:00.772Z",
     "size": 2274,
-    "path": "../public/_nuxt/error-404.480a265d.js"
-  },
-  "/_nuxt/error-500.be41e025.js": {
-    "type": "application/javascript",
-    "etag": "\"786-nkpDYIIdKPt1WhsJTwbNkf77nV4\"",
-    "mtime": "2022-10-24T18:05:58.271Z",
-    "size": 1926,
-    "path": "../public/_nuxt/error-500.be41e025.js"
+    "path": "../public/_nuxt/error-404.7c931550.js"
   },
   "/_nuxt/error-500.e60962de.css": {
     "type": "text/css; charset=utf-8",
     "etag": "\"79e-VhleGjkSRH7z4cQDJV3dxcboMhU\"",
-    "mtime": "2022-10-24T18:05:58.271Z",
+    "mtime": "2022-10-24T20:30:00.771Z",
     "size": 1950,
     "path": "../public/_nuxt/error-500.e60962de.css"
   },
-  "/_nuxt/error-component.a5f38bb0.js": {
+  "/_nuxt/error-500.fbc35c17.js": {
     "type": "application/javascript",
-    "etag": "\"4b5-QqWAI4o8zpWO0+ZwS5M/f/Qrx5E\"",
-    "mtime": "2022-10-24T18:05:58.271Z",
-    "size": 1205,
-    "path": "../public/_nuxt/error-component.a5f38bb0.js"
+    "etag": "\"78b-+FVndOEHqT2UvvAP7Lt9IDUaPYE\"",
+    "mtime": "2022-10-24T20:30:00.769Z",
+    "size": 1931,
+    "path": "../public/_nuxt/error-500.fbc35c17.js"
   },
-  "/_nuxt/index.86c0165d.js": {
+  "/_nuxt/error-component.a88b17ee.js": {
     "type": "application/javascript",
-    "etag": "\"2e3-2KH1FRvH6b8LAD7S/J8aNFoVhWw\"",
-    "mtime": "2022-10-24T18:05:58.270Z",
-    "size": 739,
-    "path": "../public/_nuxt/index.86c0165d.js"
+    "etag": "\"4b5-va5DpdSlT+e/bvJ/SeLjMEQ1JfI\"",
+    "mtime": "2022-10-24T20:30:00.768Z",
+    "size": 1205,
+    "path": "../public/_nuxt/error-component.a88b17ee.js"
+  },
+  "/_nuxt/index.3d3ea8a5.js": {
+    "type": "application/javascript",
+    "etag": "\"7fa-h/n0oUdKnPX5gMLtiugkCWd5omg\"",
+    "mtime": "2022-10-24T20:30:00.766Z",
+    "size": 2042,
+    "path": "../public/_nuxt/index.3d3ea8a5.js"
   }
 };
 

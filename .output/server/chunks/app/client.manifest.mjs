@@ -2,7 +2,7 @@ const client_manifest = {
   "node_modules/nuxt/dist/app/entry.mjs": {
     "resourceType": "script",
     "module": true,
-    "file": "entry.39f3e4fe.js",
+    "file": "entry.cb459b48.js",
     "src": "node_modules/nuxt/dist/app/entry.mjs",
     "isEntry": true,
     "dynamicImports": [
@@ -10,17 +10,17 @@ const client_manifest = {
       "layouts/default.vue"
     ],
     "css": [
-      "entry.0cc77f9a.css"
+      "entry.dcd9e625.css"
     ]
   },
-  "entry.0cc77f9a.css": {
-    "file": "entry.0cc77f9a.css",
+  "entry.dcd9e625.css": {
+    "file": "entry.dcd9e625.css",
     "resourceType": "style"
   },
   "virtual:nuxt:/Users/fredrikburmester/Documents/Websites/startpage/.nuxt/error-component.mjs": {
     "resourceType": "script",
     "module": true,
-    "file": "error-component.a5f38bb0.js",
+    "file": "error-component.a88b17ee.js",
     "src": "virtual:nuxt:/Users/fredrikburmester/Documents/Websites/startpage/.nuxt/error-component.mjs",
     "isDynamicEntry": true,
     "imports": [
@@ -34,7 +34,7 @@ const client_manifest = {
   "pages/index.vue": {
     "resourceType": "script",
     "module": true,
-    "file": "index.86c0165d.js",
+    "file": "index.3d3ea8a5.js",
     "src": "pages/index.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -44,7 +44,7 @@ const client_manifest = {
   "layouts/default.vue": {
     "resourceType": "script",
     "module": true,
-    "file": "default.cd16c06b.js",
+    "file": "default.23e3eb88.js",
     "src": "layouts/default.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -60,7 +60,7 @@ const client_manifest = {
   "node_modules/@nuxt/ui-templates/dist/templates/error-404.vue": {
     "resourceType": "script",
     "module": true,
-    "file": "error-404.480a265d.js",
+    "file": "error-404.7c931550.js",
     "src": "node_modules/@nuxt/ui-templates/dist/templates/error-404.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -78,7 +78,7 @@ const client_manifest = {
   "node_modules/@nuxt/ui-templates/dist/templates/error-500.vue": {
     "resourceType": "script",
     "module": true,
-    "file": "error-500.be41e025.js",
+    "file": "error-500.fbc35c17.js",
     "src": "node_modules/@nuxt/ui-templates/dist/templates/error-500.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -93,19 +93,19 @@ const client_manifest = {
     "file": "error-500.e60962de.css",
     "resourceType": "style"
   },
-  "node_modules/@nuxt/ui-templates/dist/templates/error-500.css": {
-    "resourceType": "style",
-    "file": "error-500.e60962de.css",
-    "src": "node_modules/@nuxt/ui-templates/dist/templates/error-500.css"
-  },
   "node_modules/@nuxt/ui-templates/dist/templates/error-404.css": {
     "resourceType": "style",
     "file": "error-404.18ced855.css",
     "src": "node_modules/@nuxt/ui-templates/dist/templates/error-404.css"
   },
+  "node_modules/@nuxt/ui-templates/dist/templates/error-500.css": {
+    "resourceType": "style",
+    "file": "error-500.e60962de.css",
+    "src": "node_modules/@nuxt/ui-templates/dist/templates/error-500.css"
+  },
   "node_modules/nuxt/dist/app/entry.css": {
     "resourceType": "style",
-    "file": "entry.0cc77f9a.css",
+    "file": "entry.dcd9e625.css",
     "src": "node_modules/nuxt/dist/app/entry.css"
   }
 };
