@@ -13,19 +13,28 @@
           <label class="label">
             <span class="label-text">Link name</span>
           </label>
-          <input v-model="name" type="text" placeholder="(ex. Github)" class="input input-bordered w-full max-w-xs" />
+          <input v-model="name" type="text" placeholder="(ex. Github)" class="input input-bordered w-full max-w-xs" >
           <label class="label">
             <span class="label-text">Link url</span>
           </label>
-          <input v-model="url"  type="text" placeholder="(ex. https://github.com)" class="input input-bordered w-full max-w-xs" />
+          <input v-model="url"  type="text" placeholder="(ex. https://github.com)" class="input input-bordered w-full max-w-xs" >
+          <label class="label">
+            <span class="label-text">Group</span>
+          </label>
+          <input v-model="group"  type="text" placeholder="(ex. Productivity)" class="input input-bordered w-full max-w-xs" >
+          <div class="mt-2 flex flex-row flex-wrap">
+            <span v-for="g in groups" class="badge cursor-pointer mr-1 mb-1" @click="group = g">{{g}}</span>
+          </div>
           <label class="label">
             <span class="label-text">Color</span>
           </label>
-          <input v-model="color" type="text" placeholder="(ex. #FFF000)" class="input input-bordered w-full max-w-xs" />
-          <div class="mt-2 flex flex-row flex-wrap space-x-1">
-            <span class="badge cursor-pointer" @click="color = ''">Follow theme</span>
-            <span class="badge cursor-pointer bg-red-600" @click="color = '#dc2626'">Red</span>
+          <input v-model="color" type="text" placeholder="(ex. #FFF000)" class="input input-bordered w-full max-w-xs" >
+
+          <div class="mt-2 flex flex-row flex-wrap">
+            <span class="badge cursor-pointer mr-1 mb-1" @click="color = ''">Follow theme</span>
+            <span v-for="c in colors" class="badge cursor-pointer mr-1 mb-1" :style="`background-color: ${c.color}`" @click="color = c.color" >{{ c.name }}</span>
           </div>
+
         </div>
         <div class="modal-action">
           <label for="my-modal-6" class="btn">Cancel</label>
@@ -38,24 +47,57 @@
 </template>
 <script lang="ts" setup>
 import { useLinksStore } from '@/stores/links'
+import { Link } from '@zhead/schema'
+
+const groups = ['Productivity', 'School', 'Work', 'Home', 'Entertainment', 'Other']
+const colors = [
+  {
+    name: 'Red',
+    color: '#dc2626'
+  },
+  {
+    name: 'Blue',
+    color: '#2563eb'
+  },
+  {
+    name: 'Green',
+    color: '#059669'
+  },
+  {
+    name: 'Yellow',
+    color: '#fbbf24'
+  },
+  {
+    name: 'Purple',
+    color: '#8b5cf6'
+  },
+  {
+    name: 'Pink',
+    color: '#ec4899'
+  },
+  {
+    name: 'Gray',
+    color: '#6b7280'
+  },
+  {
+    name: 'Black',
+    color: '#111827'
+  }
+]
 
 const store = useLinksStore()
 
 const name = ref<string>('')
 const url = ref<string>('')
 const color = ref<string>('')
-
-interface Link {
-  name: string
-  url: string
-  color: string
-}
+const group = ref<string>('')
 
 const addLink = () => {
   const newLink = {
     name: name.value,
     url: url.value,
-    color: color.value
+    color: color.value,
+    group: group.value !== '' ? group.value : 'Other'
   } as Link
   store.addLink(newLink)
 }

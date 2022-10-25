@@ -7,7 +7,9 @@
   <div v-show="edit">
     <div class="badge bg-primary py-4 pl-4 pr-0 m-1 text-center border-0 text-white cursor-pointer" :style="style">
         {{ name }}
-      <button @click="removeSelf(name)" class="ml-4 btn btn-circle  border-0 min-h-6 h-7 w-7 transition-all mr-1">x</button>
+      <button @click="removeSelf(name)" class="ml-4 btn btn-circle  border-0 min-h-6 h-7 w-7 transition-all mr-1">
+        <Icon name="material-symbols:close" />
+      </button>
     </div>
   </div>
 </template>

@@ -7,6 +7,7 @@ export const useLinksStore = defineStore('links', {
       links: useStorage('links', [{
         name: 'Nuxt',
         url: 'https://nuxtjs.org',
+        group: 'Other',
       }] as Link[]),
   }),
   actions: {

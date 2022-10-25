@@ -36,9 +36,18 @@ export const useSettingsStore = defineStore('settings', {
     }
   },
   getters: {
-    getImage() {
-      if(!this.image) return this.defaultImage
-      return this.image
+    getImageFullURL() {
+      console.log(this.image)
+      if (this.image.includes('https://') || this.image.includes('http://')) {
+        return this.image
+      }
+      return 'https://' + this.image
+    },
+    getImageWithoutProtocol() {
+      return this.image.replace(/^https?:\/\//, '')
+    },
+    getDefaultImageWithoutProtocol() {
+      return this.defaultImage.replace(/^https?:\/\//, '')
     }
   }
 })

@@ -7,7 +7,7 @@
 import { useSettingsStore } from '@/stores/settings'
 
 const store = useSettingsStore()
-const image = ref<string>(store.getImage)
+const image = ref<string>(store.getImageFullURL)
 
   watch(
   () => store.image,
