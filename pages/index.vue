@@ -4,6 +4,7 @@
       <ImageComponent />
 
       <div class="flex flex-col space-y-4 min-w-[calc(50%)] items-center md:items-start">
+        <ClockComponent />
         <h1 class="font-bold text-3xl">{{ useGreetingText() }} {{ username }}</h1>
         <div class="flex flex-row flex-wrap">
           <LinkBadge v-for="l in store.links" :key="l.name" :name="l.name" :url="l.url" :color="l.color" />
