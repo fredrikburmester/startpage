@@ -1,15 +1,13 @@
 <template>
   <div class="grid pt-24 md:pt-0 md:place-items-center min-h-screen">
     <div class="flex flex-col">
-      <div class="">
-        <SearchBar />
-      </div>
+      <SearchBar v-if="settingsStore.searchbar" />
       <div class="flex flex-col md:flex-row items-center space-y-12 md:space-y-0 space-x-0 md:space-x-12">
         <ImageComponent />
         <div class="flex flex-col space-y-4 min-w-[calc(50%)] items-center md:items-start">
-          <DateComponent />
-          <ClockComponent />
-          <h1 class="font-bold text-3xl">{{ useGreetingText() }} {{ username }}</h1>
+          <h1 class="font-bold text-4xl">{{ useGreetingText() }} {{ username }}</h1>
+          <DateComponent v-if="settingsStore.showDate" />
+          <ClockComponent v-if="settingsStore.showClock" />
           <div class="flex flex-row flex-wrap">
             <LinkBadge v-for="l in store.links" :key="l.name" :name="l.name" :url="l.url" :color="l.color" />
           </div>
@@ -31,4 +29,7 @@ const username = ref<string>(settingsStore.username)
 watch(() => settingsStore.username, (name) => {
   username.value = name
 })
+watch(() => settingsStore.searchbar, () => {})
+watch(() => settingsStore.showDate, () => {})
+watch(() => settingsStore.showClock, () => {})
 </script>
