@@ -6,7 +6,8 @@ export const useSettingsStore = defineStore('settings', {
   state: () => ({
       defaultImage: 'https://regmedia.co.uk/2022/07/29/midjourney_all_this_useless_beauty.jpg',
       image: useStorage('image', ''),
-      edit: false
+      edit: false,
+      username: useStorage('username', ''),
   }),
   actions: {
     setImage(url: string) {
@@ -17,6 +18,9 @@ export const useSettingsStore = defineStore('settings', {
     },
     toggleEdit() {
       this.edit = !this.edit
+    },
+    setUsername(username: string) {
+      this.username = username
     }
   },
   getters: {

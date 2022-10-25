@@ -19,6 +19,14 @@
             <button class="btn" @click="restoreDefaultImage">Reset</button>
           </div>
         </div>
+        <div class="form-control w-full">
+          <label class="label">
+            <span class="label-text">User</span>
+          </label>
+          <div class="flex flex-row space-x-2">
+            <input v-model="username" type="text" placeholder="(ex. Cagemaster)" class="input input-bordered w-full max-w-xs" />
+          </div>
+        </div>
         <div class="modal-action">
           <label for="settings-modal" class="btn">Cancel</label>
           <label for="settings-modal" class="btn btn-secondary" @click="save">Save</label>
@@ -30,18 +38,14 @@
 </template>
 <script lang="ts" setup>
 import { useSettingsStore } from '@/stores/settings'
-
 const store = useSettingsStore()
 
 const image = ref<string>(store.getImage)
-
-const setImage = () => {
-  store.setImage(image.value)
-}
-const url = ref<string>('')
+const username = ref<string>()
 
 const save = () => {
-  setImage()
+  store.setImage(image.value)
+  store.setUsername(username.value)
 }
 
 const restoreDefaultImage = () => {

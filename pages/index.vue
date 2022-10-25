@@ -4,7 +4,7 @@
       <ImageComponent />
 
       <div class="flex flex-col space-y-4 min-w-[calc(50%)] items-center md:items-start">
-        <h1 class="font-bold text-3xl">Welcome!</h1>
+        <h1 class="font-bold text-3xl">{{ useGreetingText() }} {{ username }}</h1>
         <div class="flex flex-row flex-wrap">
           <LinkBadge v-for="l in store.links" :key="l.name" :name="l.name" :url="l.url" :color="l.color" />
         </div>
@@ -15,6 +15,13 @@
 
 <script setup lang="ts">
 import { useLinksStore } from '@/stores/links'
-
+import { useSettingsStore } from '~~/stores/settings';
 const store = useLinksStore()
+const settingsStore = useSettingsStore()
+
+const username = ref<string>(settingsStore.username)
+
+watch(() => settingsStore.username, (name) => {
+  username.value = name
+})
 </script>
