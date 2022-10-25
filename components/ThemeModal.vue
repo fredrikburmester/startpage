@@ -4,6 +4,7 @@
       <option value="halloween">Halloween</option>
       <option value="cyberpunk">Cyberpunk</option>
       <option value="bumblebee">Bumblebee</option>
+      <option value="synthwave">Synthwave</option>
     </select>
   </div>
 </template>
