@@ -10,11 +10,21 @@
         <h1 class="font-bold text-2xl">Settings</h1>
         <p class="py-4">Change the settings!</p>
         <h1 class="font-bold text-xl my-2">Image</h1>
-        <div class="form-control w-full">
+        <!-- <div class="form-control w-full">
           <div class="flex flex-row space-x-2">
             <input v-model="image" type="text" placeholder="" class="input input-bordered w-full max-w-xs" />
             <button class="btn" @click="restoreDefaultImage">Reset</button>
           </div>
+        </div> -->
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Image link</span>
+          </label>
+          <label class="input-group">
+            <span>https://</span>
+            <input v-model="image" type="text" placeholder="ex.com/image" class="input input-bordered" />
+            <button class="btn" @click="restoreDefaultImage">Reset</button>
+          </label>
         </div>
         <h1 class="font-bold text-xl my-2">Name</h1>
         <div class="form-control w-full">
@@ -42,6 +52,7 @@
           </label>
         </div>
         <div class="modal-action">
+          <label for="settings-modal" class="btn mr-auto bg-red-400" @click="clearAllData">Clear all data</label>
           <label for="settings-modal" class="btn">Cancel</label>
           <label for="settings-modal" class="btn btn-secondary" @click="save">Save</label>
         </div>
@@ -52,16 +63,22 @@
 </template>
 <script lang="ts" setup>
 import { useSettingsStore } from '@/stores/settings'
+import { useLinksStore } from '~~/stores/links'
 const store = useSettingsStore()
+const linksStore = useLinksStore()
 
-const image = ref<string>(store.getImage)
+const image = ref<string>(store.getImageWithoutProtocol)
 const username = ref<string>()
 const searchbar = ref(store.searchbar)
 const showDate = ref(store.showDate)
 const showClock = ref(store.showClock)
 
 const save = () => {
-  store.setImage(image.value)
+  if (image.value.includes('http://') || image.value.includes('https://')) {
+    store.setImage(image.value)
+  } else {
+    store.setImage(`https://${image.value}`)
+  }
   store.setUsername(username.value)
   store.setSearchbar(searchbar.value)
   store.setShowDate(showDate.value)
@@ -69,7 +86,16 @@ const save = () => {
 }
 
 const restoreDefaultImage = () => {
-  image.value = store.defaultImage
+  image.value = store.getDefaultImageWithoutProtocol
+}
+
+const clearAllData = () => {
+  console.log('clearing all data')
+  store.clearAllData()
+  linksStore.clearAllData()
+
+  // reload window
+  window.location.reload()
 }
 
 </script>

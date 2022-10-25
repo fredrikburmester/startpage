@@ -7,6 +7,7 @@ export const useLinksStore = defineStore('links', {
       links: useStorage('links', [{
         name: 'Nuxt',
         url: 'https://nuxtjs.org',
+        group: 'Other',
       }] as Link[]),
   }),
   actions: {
@@ -15,6 +16,9 @@ export const useLinksStore = defineStore('links', {
     },
     removeLinkByName(name: string) {
       this.links = this.links.filter((l: Link) => l.name !== name)
+    },
+    clearAllData() {
+      this.links = []
     }
   },
 })
