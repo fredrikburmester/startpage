@@ -1,5 +1,5 @@
 <template>
-  <div class="card max-h-[calc(50vh)] bg-base-100 shadow-xl image-full">
+  <div class="card max-h-[calc(30vh)] md:max-h-[calc(80vh)] bg-base-100 shadow-xl image-full">
     <figure><img :src="image" alt="image" /></figure>
   </div>
 </template>
