@@ -5,7 +5,7 @@ import { useStorage } from '@vueuse/core'
 export const useSettingsStore = defineStore('settings', {
   state: () => ({
       defaultImage: 'https://regmedia.co.uk/2022/07/29/midjourney_all_this_useless_beauty.jpg',
-      image: useStorage('image', ''),
+      image: useStorage('image', 'https://regmedia.co.uk/2022/07/29/midjourney_all_this_useless_beauty.jpg'),
       edit: false,
       username: useStorage('username', ''),
       searchbar: useStorage('searchbar', true),
