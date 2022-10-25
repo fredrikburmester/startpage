@@ -16,6 +16,9 @@ export const useLinksStore = defineStore('links', {
     },
     removeLinkByName(name: string) {
       this.links = this.links.filter((l: Link) => l.name !== name)
+    },
+    clearAllData() {
+      this.links = []
     }
   },
 })

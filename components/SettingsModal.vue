@@ -52,6 +52,7 @@
           </label>
         </div>
         <div class="modal-action">
+          <label for="settings-modal" class="btn mr-auto bg-red-400" @click="clearAllData">Clear all data</label>
           <label for="settings-modal" class="btn">Cancel</label>
           <label for="settings-modal" class="btn btn-secondary" @click="save">Save</label>
         </div>
@@ -62,7 +63,9 @@
 </template>
 <script lang="ts" setup>
 import { useSettingsStore } from '@/stores/settings'
+import { useLinksStore } from '~~/stores/links'
 const store = useSettingsStore()
+const linksStore = useLinksStore()
 
 const image = ref<string>(store.getImageWithoutProtocol)
 const username = ref<string>()
@@ -84,6 +87,15 @@ const save = () => {
 
 const restoreDefaultImage = () => {
   image.value = store.getDefaultImageWithoutProtocol
+}
+
+const clearAllData = () => {
+  console.log('clearing all data')
+  store.clearAllData()
+  linksStore.clearAllData()
+
+  // reload window
+  window.location.reload()
 }
 
 </script>

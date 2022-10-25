@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col md:place-items-center h-screen md:py-24 justify-around md:px-24 py-24 md:mb-0 mb-24">
+  <div class="flex flex-col md:place-items-center h-screen md:py-24 justify-around md:px-24 py-24 md:mb-0 mb-24 max-w-scren overflow-clip">
     <div class="flex flex-col">
       <SearchBar v-if="settingsStore.searchbar" />
       <div class="grid grid-rows-2 md:grid-rows-1 md:grid-cols-2 items-center gap-16">

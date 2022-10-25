@@ -33,6 +33,13 @@ export const useSettingsStore = defineStore('settings', {
     },
     setShowClock(val: boolean) {
       this.showClock = val
+    },
+    clearAllData() {
+      this.image = this.defaultImage
+      this.username = ''
+      this.searchbar = true
+      this.showDate = true
+      this.showClock = true
     }
   },
   getters: {
