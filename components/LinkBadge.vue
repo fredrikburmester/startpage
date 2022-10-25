@@ -48,7 +48,6 @@ const edit = ref(false)
 watch(
   () => settingStore.edit,
   (newEdit: boolean) => {
-    console.log(`count is: ${edit}`)
     edit.value = newEdit
   }
 )
