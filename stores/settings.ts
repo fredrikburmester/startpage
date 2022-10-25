@@ -8,6 +8,9 @@ export const useSettingsStore = defineStore('settings', {
       image: useStorage('image', ''),
       edit: false,
       username: useStorage('username', ''),
+      searchbar: useStorage('searchbar', true),
+      showDate: useStorage('showDate', true),
+      showClock: useStorage('showClock', true),
   }),
   actions: {
     setImage(url: string) {
@@ -21,6 +24,15 @@ export const useSettingsStore = defineStore('settings', {
     },
     setUsername(username: string) {
       this.username = username
+    },
+    setSearchbar(val: boolean) {
+      this.searchbar = val
+    },
+    setShowDate(val: boolean) {
+      this.showDate = val
+    },
+    setShowClock(val: boolean) {
+      this.showClock = val
     }
   },
   getters: {
