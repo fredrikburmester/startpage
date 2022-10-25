@@ -12,7 +12,7 @@
         <h2 class="text-xl">Image</h2>
         <div class="form-control w-full">
           <label class="label">
-            <span class="label-text">Link name</span>
+            <span class="label-text">Image link</span>
           </label>
           <div class="flex flex-row space-x-2">
             <input v-model="image" type="text" placeholder="" class="input input-bordered w-full max-w-xs" />
