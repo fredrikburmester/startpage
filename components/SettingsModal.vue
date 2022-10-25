@@ -9,10 +9,9 @@
       <div class="modal-box">
         <h1 class="font-bold text-2xl">Settings</h1>
         <p class="py-4">Change the settings!</p>
-        <h2 class="text-xl">Image</h2>
         <div class="form-control w-full">
           <label class="label">
-            <span class="label-text">Image link</span>
+            <span class="label-text">Image</span>
           </label>
           <div class="flex flex-row space-x-2">
             <input v-model="image" type="text" placeholder="" class="input input-bordered w-full max-w-xs" />
@@ -21,7 +20,7 @@
         </div>
         <div class="form-control w-full">
           <label class="label">
-            <span class="label-text">User</span>
+            <span class="label-text">Name</span>
           </label>
           <div class="flex flex-row space-x-2">
             <input v-model="username" type="text" placeholder="(ex. Cagemaster)" class="input input-bordered w-full max-w-xs" />
