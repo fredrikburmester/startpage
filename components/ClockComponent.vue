@@ -1,5 +1,5 @@
 <template>
-  <span class="countdown font-mono text-6xl">
+  <span class="countdown font-mono text-6xl p-0">
     <span ref="hours"></span>:
     <span ref="minutes"></span>:
     <span ref="seconds"></span>
