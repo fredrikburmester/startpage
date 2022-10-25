@@ -9,22 +9,37 @@
       <div class="modal-box">
         <h1 class="font-bold text-2xl">Settings</h1>
         <p class="py-4">Change the settings!</p>
+        <h1 class="font-bold text-xl my-2">Image</h1>
         <div class="form-control w-full">
-          <label class="label">
-            <span class="label-text">Image</span>
-          </label>
           <div class="flex flex-row space-x-2">
             <input v-model="image" type="text" placeholder="" class="input input-bordered w-full max-w-xs" />
             <button class="btn" @click="restoreDefaultImage">Reset</button>
           </div>
         </div>
+        <h1 class="font-bold text-xl my-2">Name</h1>
         <div class="form-control w-full">
-          <label class="label">
-            <span class="label-text">Name</span>
-          </label>
           <div class="flex flex-row space-x-2">
             <input v-model="username" type="text" placeholder="(ex. Cagemaster)" class="input input-bordered w-full max-w-xs" />
           </div>
+        </div>
+        <h1 class="font-bold text-xl my-2">More settings</h1>
+        <div class="form-control">
+          <label class="label cursor-pointer w-48">
+            <span class="label-text">Show search bar</span> 
+            <input v-model="searchbar" type="checkbox" class="checkbox checkbox-primary" />
+          </label>
+        </div>
+        <div class="form-control">
+          <label class="label cursor-pointer w-48">
+            <span class="label-text">Show date</span> 
+            <input v-model="showDate" type="checkbox" class="checkbox checkbox-primary" />
+          </label>
+        </div>
+        <div class="form-control">
+          <label class="label cursor-pointer w-48">
+            <span class="label-text">Show clock</span> 
+            <input v-model="showClock" type="checkbox" class="checkbox checkbox-primary" />
+          </label>
         </div>
         <div class="modal-action">
           <label for="settings-modal" class="btn">Cancel</label>
@@ -41,10 +56,16 @@ const store = useSettingsStore()
 
 const image = ref<string>(store.getImage)
 const username = ref<string>()
+const searchbar = ref(store.searchbar)
+const showDate = ref(store.showDate)
+const showClock = ref(store.showClock)
 
 const save = () => {
   store.setImage(image.value)
   store.setUsername(username.value)
+  store.setSearchbar(searchbar.value)
+  store.setShowDate(showDate.value)
+  store.setShowClock(showClock.value)
 }
 
 const restoreDefaultImage = () => {
