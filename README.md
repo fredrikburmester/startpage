@@ -10,6 +10,12 @@ To use this website right away, go to: https://startpage-wr6.pages.dev/
 
 Or for the development version (that might be broken sometimes doe to development): https://develop.startpage-wr6.pages.dev/
 
+## How it works
+
+When you go to this website you can change a bunch of settings. All settings are stored in [local storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) so that you don't have to change them every time you open the website. This means that you can use the link to the website above and make it your own, even though I'm the one hosting it!
+
+In the future I might add a way to save your settings to a database so you can use it on multiple devices, but for now this website will never send any data to a server.
+
 ## Features
 
 More and more features will be added in the future. If you have any ideas, feel free to open an issue or create a pull request!
