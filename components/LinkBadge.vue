@@ -1,7 +1,10 @@
 <template>
   <nuxt-link :to="url" v-if="!edit">
-    <div class="badge bg-primary p-4 m-1 text-center border-0 text-white cursor-pointer" :style="style">
-        {{ name }}
+    <div class="flex items-center group badge bg-primary p-4 m-1 text-center border-0 text-white cursor-pointer hover:opacity-80 overflow-hidden" :style="style">
+      {{ name }}
+      <span class="hidden group-hover:flex ml-2 items-center">
+        <Icon name="ei:external-link" />
+      </span>
     </div>
   </nuxt-link>
   <div v-show="edit">
