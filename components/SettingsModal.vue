@@ -52,7 +52,7 @@
           </label>
         </div>
         <div class="modal-action">
-          <label for="settings-modal" class="btn mr-auto bg-red-400" @click="clearAllData">Clear all data</label>
+          <label for="settings-modal" class="btn mr-auto bg-red-900 text-white" @click="clearAllData">Clear all data</label>
           <label for="settings-modal" class="btn">Cancel</label>
           <label for="settings-modal" class="btn btn-secondary" @click="save">Save</label>
         </div>
