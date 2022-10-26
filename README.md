@@ -1,20 +1,18 @@
-# Nuxt 3 Minimal Starter
+# Startpage
 
 This is a startpage for your browser. Think of your booring new tab page and replace it with this!
 
+**To use this website right away, go to:** <https://startpage-wr6.pages.dev/>. Or for the development version (that might be broken sometimes due to development): <https://develop.startpage-wr6.pages.dev/>
+
 ![Screenshot](assets/Screenshot%202022-10-26%20at%2008.41.41.png)
 
-This website is build with Nuxt 3 (look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more), TailwindCSS and DaisyUI. 
+**If you want to support this website and what I do:** 
 
-To use this website right away, go to: https://startpage-wr6.pages.dev/
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate/?hosted_button_id=HAA8RD9LJQ2ZW)
 
-Or for the development version (that might be broken sometimes due to development): https://develop.startpage-wr6.pages.dev/
+## 
 
-## How it works
 
-When you go to this website you can change a bunch of settings. All settings are stored in [local storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) so that you don't have to change them every time you open the website. This means that you can use the link to the website above and make it your own, even though I'm the one hosting it!
-
-In the future I might add a way to save your settings to a database so you can use it on multiple devices, but for now this website will never send any data to a server.
 
 ## Features
 
@@ -39,6 +37,8 @@ If something's not working as expected it might be due to an update of the websi
 
 
 ## Download
+
+This website is build with Nuxt 3 (look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more), TailwindCSS and DaisyUI. 
 
 Clone this repository and install the dependencies:
 
