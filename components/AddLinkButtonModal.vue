@@ -47,7 +47,7 @@
 </template>
 <script lang="ts" setup>
 import { useLinksStore } from '@/stores/links'
-import { Link } from '@zhead/schema'
+import { Link } from '~~/types/types'
 
 const groups = ['Productivity', 'School', 'Work', 'Home', 'Entertainment', 'Other']
 const colors = [
@@ -93,12 +93,12 @@ const color = ref<string>('')
 const group = ref<string>('')
 
 const addLink = () => {
-  const newLink = {
-    name: name.value,
-    url: url.value,
-    color: color.value,
-    group: group.value !== '' ? group.value : 'Other'
-  } as Link
-  store.addLink(newLink)
+  const l: Link = {
+    'name': name.value,
+    'url': url.value,
+    'color': color.value,
+    'group': group.value !== '' ? group.value : 'Other'
+  }
+  store.addLink(l)
 }
 </script>
