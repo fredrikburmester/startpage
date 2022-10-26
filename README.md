@@ -4,7 +4,11 @@ This is a startpage for your browser. Think of your booring new tab page and rep
 
 ![Screenshot](assets/Screenshot%202022-10-26%20at%2008.41.41.png)
 
-This website is build with Nuxt 3 (look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more), TailwindCSS and DaisyUI.  
+This website is build with Nuxt 3 (look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more), TailwindCSS and DaisyUI. 
+
+To use this website right away, go to: https://startpage-wr6.pages.dev/
+
+Or for the development version (that might be broken sometimes doe to development): https://develop.startpage-wr6.pages.dev/
 
 ## Features
 
@@ -20,6 +24,13 @@ Current features:
 -   [x]  Categories
 -   [x]  Changeable image
 -   [x]  Theme switcher with 4 themes (for now)
+
+## Bugs
+
+Sometimes all it takes is a reload of the page to fix!
+
+If something's not working as expected it might be due to an update of the website, please reload the website and go into the settings in the bottom left corner and click on "Clear all data". If this doesn't work, please open an issue.
+
 
 ## Download
 
