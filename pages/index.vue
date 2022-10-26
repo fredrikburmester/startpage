@@ -9,7 +9,7 @@
           <DateComponent v-if="settingsStore.showDate" />
           <ClockComponent v-if="settingsStore.showClock" />
           <div class="flex flex-row">
-            <div v-for="c in uniqueCategories" class="flex flex-col flex-wrap justify-items-start mr-4">
+            <div v-for="c in uniqueCategories" class="flex flex-col flex-wrap justify-items-start mr-4" :key="c">
               <h1 class="text-xl p-1">{{ c }}</h1>
               <LinkBadge v-for="l in links.filter(l => l.group == c)" :key="l.name" :name="l.name" :url="l.url" :color="l.color" />
             </div>
@@ -23,14 +23,13 @@
 <script setup lang="ts">
 import { useLinksStore } from '@/stores/links'
 import { useSettingsStore } from '~~/stores/settings';
+import { Link } from '~~/types/types'
 const store = useLinksStore()
 const settingsStore = useSettingsStore()
 
-const uniqueCategories = computed(() => {
-  return [...new Set(store.links.map(l => l.group))]
-})
+const uniqueCategories = ref(store.getUniqueGroups)
+const links = ref<Link[]>(store.getLinks)
 
-const links = ref(store.links)
 const username = ref<string>(settingsStore.username)
 
 watch(() => settingsStore.username, (name) => {
@@ -39,4 +38,9 @@ watch(() => settingsStore.username, (name) => {
 watch(() => settingsStore.searchbar, () => {})
 watch(() => settingsStore.showDate, () => {})
 watch(() => settingsStore.showClock, () => {})
+watch(() => store.count, () => {
+  console.log(store.getLinks)
+  uniqueCategories.value = store.getUniqueGroups
+  links.value = store.getLinks
+})
 </script>
