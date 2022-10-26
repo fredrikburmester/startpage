@@ -8,7 +8,7 @@ This website is build with Nuxt 3 (look at the [nuxt 3 documentation](https://v3
 
 To use this website right away, go to: https://startpage-wr6.pages.dev/
 
-Or for the development version (that might be broken sometimes doe to development): https://develop.startpage-wr6.pages.dev/
+Or for the development version (that might be broken sometimes due to development): https://develop.startpage-wr6.pages.dev/
 
 ## How it works
 
