@@ -11,10 +11,14 @@ export const useSettingsStore = defineStore('settings', {
       searchbar: useStorage('searchbar', true),
       showDate: useStorage('showDate', true),
       showClock: useStorage('showClock', true),
+      backgroundImage: useStorage('backgroundImage', ''),
   }),
   actions: {
     setImage(url: string) {
       this.image = url
+    },
+    setBackgroundImage(url: string) {
+      this.backgroundImage = url
     },
     setEdit(edit: boolean) {
       this.edit = edit
@@ -40,6 +44,7 @@ export const useSettingsStore = defineStore('settings', {
       this.searchbar = true
       this.showDate = true
       this.showClock = true
+      this.backgroundImage = ''
     }
   },
   getters: {
@@ -55,6 +60,9 @@ export const useSettingsStore = defineStore('settings', {
     },
     getDefaultImageWithoutProtocol() {
       return this.defaultImage.replace(/^https?:\/\//, '')
+    },
+    getBackgroundImage() {
+      return this.backgroundImage
     }
   }
 })

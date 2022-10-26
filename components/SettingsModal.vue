@@ -22,8 +22,17 @@
           </label>
           <label class="input-group">
             <span>https://</span>
-            <input v-model="image" type="text" placeholder="ex.com/image" class="input input-bordered" />
+            <input v-model="image" type="text" placeholder="image.com/image" class="flex-1 input input-bordered" />
             <button class="btn" @click="restoreDefaultImage">Reset</button>
+          </label>
+        </div>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Background image link</span>
+          </label>
+          <label class="input-group">
+            <input v-model="backgroundImage" type="text" placeholder="(ex. https://image.com/image)" class="flex-1 input input-bordered" />
+            <button class="btn" @click="backgroundImage = ''">Reset</button>
           </label>
         </div>
         <h1 class="font-bold text-xl my-2">Name</h1>
@@ -72,6 +81,7 @@ const username = ref<string>()
 const searchbar = ref(store.searchbar)
 const showDate = ref(store.showDate)
 const showClock = ref(store.showClock)
+const backgroundImage = ref(store.backgroundImage)
 
 const save = () => {
   if (image.value.includes('http://') || image.value.includes('https://')) {
@@ -83,6 +93,7 @@ const save = () => {
   store.setSearchbar(searchbar.value)
   store.setShowDate(showDate.value)
   store.setShowClock(showClock.value)
+  store.setBackgroundImage(backgroundImage.value)
 }
 
 const restoreDefaultImage = () => {
