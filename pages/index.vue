@@ -1,10 +1,10 @@
 <template>
-  <div class="flex flex-col md:place-items-center h-screen md:py-24 justify-around md:px-24 py-24 md:mb-0 mb-24 max-w-scren overflow-clip">
+  <div class="flex flex-col place-items-start md:place-items-center md:h-screen justify-around mt-20 md:mt-0 md:px-24 mb-12 md:mb-0 max-w-scren overflow-clip">
     <div class="flex flex-col">
       <SearchBar v-if="settingsStore.searchbar" />
-      <div class="grid grid-rows-2 md:grid-rows-1 md:grid-cols-2 items-center gap-16">
+      <div class="grid grid-rows-2 md:grid-rows-1 md:grid-cols-2 items-center gap-2 md:gap-16">
         <ImageComponent />
-        <div class="flex flex-col space-y-4 min-w-[calc(50%)] items-center md:items-start ">
+        <div class="flex flex-col space-y-4 min-w-[calc(50%)] items-start ">
           <h1 class="font-bold text-4xl">{{ useGreetingText() }} {{ username }}</h1>
           <DateComponent v-if="settingsStore.showDate" />
           <ClockComponent v-if="settingsStore.showClock" />
