@@ -2,10 +2,11 @@
 import { defineStore } from 'pinia'
 import { useStorage } from '@vueuse/core'
 
+
+
 export const useSettingsStore = defineStore('settings', {
   state: () => ({
-      defaultImage: 'https://regmedia.co.uk/2022/07/29/midjourney_all_this_useless_beauty.jpg',
-      image: useStorage('image', 'https://regmedia.co.uk/2022/07/29/midjourney_all_this_useless_beauty.jpg'),
+      image: useStorage('image', ''),
       edit: false,
       username: useStorage('username', ''),
       searchbar: useStorage('searchbar', true),
@@ -48,18 +49,8 @@ export const useSettingsStore = defineStore('settings', {
     }
   },
   getters: {
-    getImageFullURL() {
-      console.log(this.image)
-      if (this.image.includes('https://') || this.image.includes('http://')) {
-        return this.image
-      }
-      return 'https://' + this.image
-    },
-    getImageWithoutProtocol() {
-      return this.image.replace(/^https?:\/\//, '')
-    },
-    getDefaultImageWithoutProtocol() {
-      return this.defaultImage.replace(/^https?:\/\//, '')
+    getImage() {
+      return this.image
     },
     getBackgroundImage() {
       return this.backgroundImage
