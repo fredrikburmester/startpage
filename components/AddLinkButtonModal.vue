@@ -2,7 +2,7 @@
   <label for="my-modal-6" class="btn btn-circle fixed bottom-0 right-0 m-6">+</label>
 
   <Teleport to="body">
-    <input type="checkbox" id="my-modal-6" class="modal-toggle" />
+    <input type="checkbox" id="my-modal-6" class="modal-toggle" @click="disableEdit"/>
     <div class="modal modal-bottom sm:modal-middle">
       <div class="modal-box">
         <h3 class="font-bold text-lg">Add a link button</h3>
@@ -47,6 +47,8 @@
 </template>
 <script lang="ts" setup>
 import { useLinksStore } from '@/stores/links'
+import { useAlertStore } from '~~/stores/alert'
+import { useSettingsStore } from '~~/stores/settings'
 import { Link } from '~~/types/types'
 
 const groups = ['Productivity', 'School', 'Work', 'Home', 'Entertainment', 'Other']
@@ -86,13 +88,28 @@ const colors = [
 ]
 
 const store = useLinksStore()
+const settingsStore = useSettingsStore()
+
 
 const name = ref<string>('')
 const url = ref<string>('')
 const color = ref<string>('')
 const group = ref<string>('')
 
+const disableEdit = () => {
+  settingsStore.setEdit(false)
+}
+
+const alertStore = useAlertStore()
+
 const addLink = () => {
+  // check if link with same name already exist
+  const link = store.links.find((l: Link) => l.name === name.value)
+  if(link) {
+    alertStore.setAlert('A link with the same name already exist', 'error')
+    return
+  }
+
   const l: Link = {
     'name': name.value,
     'url': url.value,
