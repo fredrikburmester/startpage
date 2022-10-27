@@ -30,8 +30,8 @@ const imageOpacity = ref(store.getImageOpacity)
 
 watch(
   () => store.image,
-  (img) => {
-    image.value = img
+  () => {
+    image.value = getImageOrRandom()
   }
 )
 
