@@ -1,5 +1,5 @@
 <template>
-  <div ref="main" class="relative min-h-screen">
+  <div ref="main" class="relative">
     <div class="z-10 md:container md:mx-auto px-4 md:px-0 m-0">
       <slot />
     </div>

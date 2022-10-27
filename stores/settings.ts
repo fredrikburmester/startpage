@@ -2,8 +2,6 @@
 import { defineStore } from 'pinia'
 import { useStorage } from '@vueuse/core'
 
-
-
 export const useSettingsStore = defineStore('settings', {
   state: () => ({
       image: useStorage('image', ''),
@@ -13,16 +11,20 @@ export const useSettingsStore = defineStore('settings', {
       showDate: useStorage('showDate', true),
       showClock: useStorage('showClock', true),
       backgroundImage: useStorage('backgroundImage', ''),
+      imageOpacity: useStorage('imageOpacity', 50),
   }),
   actions: {
-    setImage(url: string) {
-      this.image = url
+    setImage(l: string) {
+      this.image = l
     },
-    setBackgroundImage(url: string) {
-      this.backgroundImage = url
+    setImageOpacity(p: number) {
+      this.imageOpacity = p
     },
-    setEdit(edit: boolean) {
-      this.edit = edit
+    setBackgroundImage(l: string) {
+      this.backgroundImage = l
+    },
+    setEdit(v: boolean) {
+      this.edit = v
     },
     toggleEdit() {
       this.edit = !this.edit
@@ -54,6 +56,9 @@ export const useSettingsStore = defineStore('settings', {
     },
     getBackgroundImage() {
       return this.backgroundImage
+    },
+    getImageOpacity() {
+      return this.imageOpacity
     }
   }
 })

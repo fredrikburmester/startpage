@@ -10,12 +10,12 @@
 <script setup lang="ts">
 import { useLinksStore } from '@/stores/links'
 import { themeChange } from 'theme-change'
+import { useSettingsStore } from './stores/settings'
 
 const store = useLinksStore()
+const settingsStore = useSettingsStore()
 
 onMounted(() => {
   themeChange(false)
 })
-
-console.log(store.links)
 </script>

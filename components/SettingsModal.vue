@@ -53,7 +53,11 @@
             <input v-model="showClock" type="checkbox" class="checkbox checkbox-primary" />
           </label>
         </div>
-        <div class="modal-action">
+        <div class="form-control">
+          <label class="label">Image opacity</label>
+          <input type="range" min="0" max="100" v-model="imageOpacity" class="range" />
+        </div>
+          <div class="modal-action">
           <label for="settings-modal" class="btn mr-auto bg-red-900 text-white" @click="clearAllData">Clear all data</label>
           <label for="settings-modal" class="btn">Cancel</label>
           <label for="settings-modal" class="btn btn-secondary" @click="save">Save</label>
@@ -75,6 +79,7 @@ const searchbar = ref(store.searchbar)
 const showDate = ref(store.showDate)
 const showClock = ref(store.showClock)
 const backgroundImage = ref(store.backgroundImage)
+const imageOpacity = ref(store.getImageOpacity)
 
 const save = () => {
   store.setImage(image.value)
@@ -83,6 +88,7 @@ const save = () => {
   store.setShowDate(showDate.value)
   store.setShowClock(showClock.value)
   store.setBackgroundImage(backgroundImage.value)
+  store.setImageOpacity(imageOpacity.value)
 }
 
 const disableEdit = () => {
