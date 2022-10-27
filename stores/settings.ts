@@ -4,24 +4,27 @@ import { useStorage } from '@vueuse/core'
 
 export const useSettingsStore = defineStore('settings', {
   state: () => ({
-      defaultImage: 'https://regmedia.co.uk/2022/07/29/midjourney_all_this_useless_beauty.jpg',
-      image: useStorage('image', 'https://regmedia.co.uk/2022/07/29/midjourney_all_this_useless_beauty.jpg'),
+      image: useStorage('image', ''),
       edit: false,
       username: useStorage('username', ''),
       searchbar: useStorage('searchbar', true),
       showDate: useStorage('showDate', true),
       showClock: useStorage('showClock', true),
       backgroundImage: useStorage('backgroundImage', ''),
+      imageOpacity: useStorage('imageOpacity', 50),
   }),
   actions: {
-    setImage(url: string) {
-      this.image = url
+    setImage(l: string) {
+      this.image = l
     },
-    setBackgroundImage(url: string) {
-      this.backgroundImage = url
+    setImageOpacity(p: number) {
+      this.imageOpacity = p
     },
-    setEdit(edit: boolean) {
-      this.edit = edit
+    setBackgroundImage(l: string) {
+      this.backgroundImage = l
+    },
+    setEdit(v: boolean) {
+      this.edit = v
     },
     toggleEdit() {
       this.edit = !this.edit
@@ -48,21 +51,14 @@ export const useSettingsStore = defineStore('settings', {
     }
   },
   getters: {
-    getImageFullURL() {
-      console.log(this.image)
-      if (this.image.includes('https://') || this.image.includes('http://')) {
-        return this.image
-      }
-      return 'https://' + this.image
-    },
-    getImageWithoutProtocol() {
-      return this.image.replace(/^https?:\/\//, '')
-    },
-    getDefaultImageWithoutProtocol() {
-      return this.defaultImage.replace(/^https?:\/\//, '')
+    getImage() {
+      return this.image
     },
     getBackgroundImage() {
       return this.backgroundImage
+    },
+    getImageOpacity() {
+      return this.imageOpacity
     }
   }
 })
