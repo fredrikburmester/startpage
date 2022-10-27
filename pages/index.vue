@@ -44,3 +44,9 @@ watch(() => store.count, () => {
   links.value = store.getLinks
 })
 </script>
+
+<style>
+::-webkit-scrollbar {
+  width: 0px;
+}
+</style>
