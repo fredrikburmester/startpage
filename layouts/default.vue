@@ -7,6 +7,7 @@
     <SettingsModal />
     <ThemeModal />
     <EditButton />
+    <AlertComponent />
   </div>
 </template>
 

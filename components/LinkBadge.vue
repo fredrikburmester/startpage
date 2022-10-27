@@ -1,6 +1,6 @@
 <template>
   <nuxt-link :to="url" v-if="!edit">
-    <div class="flex items-center group badge bg-primary p-4 m-1 text-center border-0 text-white cursor-pointer hover:opacity-80 overflow-hidden" :style="style">
+    <div class="whitespace-nowrap flex items-center group badge bg-primary p-4 m-1 text-center border-0 text-white cursor-pointer hover:opacity-80 overflow-hidden" :style="style">
       {{ name }}
       <span class="hidden group-hover:flex ml-2 items-center">
         <Icon name="ei:external-link" />
@@ -8,7 +8,7 @@
     </div>
   </nuxt-link>
   <div v-show="edit">
-    <div class="badge bg-primary py-4 pl-4 pr-0 m-1 text-center border-0 text-white cursor-pointer" :style="style">
+    <div class="whitespace-nowrap badge bg-primary py-4 pl-4 pr-0 m-1 text-center border-0 text-white cursor-pointer" :style="style">
         {{ name }}
       <button @click="removeSelf(name)" class="ml-4 btn btn-circle  border-0 min-h-6 h-7 w-7 transition-all mr-1">
         <Icon name="material-symbols:close" />
@@ -29,13 +29,6 @@ const { name, url, color } = defineProps<{
   url?: string
   color?: string
 }>()
-
-const classes = computed(() => {
-  return {
-    'badge p-4 m-1 text-center border-0 text-white cursor-pointer': true,
-    'bg-primary': color === '' || color === undefined || color === null,
-  }
-})
 
 const style = computed(() => {
   if(color !== '' && color !== undefined && color !== null) {

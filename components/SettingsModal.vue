@@ -1,5 +1,5 @@
 <template>
-  <label for="settings-modal" class="btn btn-circle fixed bottom-0 left-0 m-6">
+  <label for="settings-modal" class="btn btn-circle fixed bottom-0 left-0 m-6" @click="disableEdit">
     <svg class="swap-off fill-current" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512"><path d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z"/></svg>
   </label>
 
@@ -94,6 +94,10 @@ const save = () => {
   store.setShowDate(showDate.value)
   store.setShowClock(showClock.value)
   store.setBackgroundImage(backgroundImage.value)
+}
+
+const disableEdit = () => {
+  store.setEdit(false)
 }
 
 const restoreDefaultImage = () => {
