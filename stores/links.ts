@@ -68,6 +68,10 @@ export const useLinksStore = defineStore('links', {
     clearAllData() {
       this.links = this.defaultLinks
       this.count = 4
+    },
+    editLink(ol: Link, nl: Link) {
+      const index = this.links.findIndex((link: Link) => link.name === ol.name)
+      this.links[index] = nl
     }
   },
   getters: {
