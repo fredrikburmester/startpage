@@ -2,7 +2,9 @@
 
 This is a startpage for your browser. Think of your booring new tab page and replace it with this!
 
-**To use this website right away, go to:** <https://startpage-wr6.pages.dev/>. Or for the development version (that might be broken sometimes due to development): <https://develop.startpage-wr6.pages.dev/>
+To use this website right away, go to: <https://startpage-wr6.pages.dev/>. Or for the development version (that might be broken sometimes due to development): <https://develop.startpage-wr6.pages.dev/>
+
+**All settings are done in the web interface, there are no enviroment variables, no json or config files, nothing! This is a complete experience in the browser.**
 
 ![Screenshot](assets/Screenshot%202022-10-26%20at%2008.41.41.png)
 
@@ -14,7 +16,7 @@ This is a startpage for your browser. Think of your booring new tab page and rep
 
 
 
-## Features
+## ⚡️ Features
 
 More and more features will be added in the future. If you have any ideas, feel free to open an issue or create a pull request!
 
@@ -29,7 +31,7 @@ Current features:
 -   [x]  Changeable image
 -   [x]  Theme switcher with 4 themes (for now)
 
-## Widgets
+## 🖇️ Widgets
 
 > Widgets are under development
 
@@ -37,14 +39,14 @@ Current features:
 
 The plex widget enables you to see current streams on your server. Due to SSL certificates you'll need to supply a SSL certified Plex domain like `https://plex.domain.com`, or if you host this startpage without SSL you can just supply the external IP address and port of your Plex server like so: `http://<EXTERNAL_IP>:32400`.
 
-## Bugs
+## 🐞 Bugs
 
 Sometimes all it takes is a reload of the page to fix!
 
 If something's not working as expected it might be due to an update of the website, please reload the website and go into the settings in the bottom left corner and click on "Clear all data". If this doesn't work, please open an issue.
 
 
-## Download
+## 💾 Download
 
 This website is build with Nuxt 3 (look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more), TailwindCSS and DaisyUI. 
 
@@ -54,7 +56,7 @@ Clone this repository and install the dependencies:
 yarn install
 ```
 
-## Run
+## 🏃🏻‍♂️ Run
 
 Start the development server on http://localhost:3000
 
@@ -62,7 +64,7 @@ Start the development server on http://localhost:3000
 yarn dev
 ```
 
-## Build for production
+## 🔧 Build for production
 
 To generate a static version of the website that can be self-hosted on any webserver:
 
