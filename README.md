@@ -29,6 +29,14 @@ Current features:
 -   [x]  Changeable image
 -   [x]  Theme switcher with 4 themes (for now)
 
+## Widgets
+
+> Widgets are under development
+
+### Plex
+
+The plex widget enables you to see current streams on your server. Due to SSL certificates you'll need to supply a SSL certified Plex domain like `https://plex.domain.com`, or if you host this startpage without SSL you can just supply the external IP address and port of your Plex server like so: `http://<EXTERNAL_IP>:32400`.
+
 ## Bugs
 
 Sometimes all it takes is a reload of the page to fix!
