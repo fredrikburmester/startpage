@@ -71,7 +71,7 @@
             <span class="label-text">Plex server URL and port</span>
           </label>
           <label class="input-group">
-            <input v-model="plexURL" type="text" placeholder="(ex. http://<PUBLIC_URL>:32400)" class="flex-1 input input-bordered" />
+            <input v-model="plexURL" type="text" placeholder="(ex. https://plex.domain.com)" class="flex-1 input input-bordered" />
           </label>
         </div>
         <div class="modal-action">
