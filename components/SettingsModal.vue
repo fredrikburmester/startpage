@@ -7,9 +7,8 @@
     <input type="checkbox" id="settings-modal" class="modal-toggle" />
     <div class="modal modal-bottom sm:modal-middle">
       <div class="modal-box">
-        <h1 class="font-bold text-2xl">Settings</h1>
-        <p class="py-4">Change the settings!</p>
-        <h1 class="font-bold text-xl my-2">Image</h1>
+        <h1 class="font-bold text-3xl">Settings</h1>
+        <h1 class="font-bold text-xl my-2">Images</h1>
         <div class="form-control">
           <label class="label">
             <span class="label-text">Image link (leave empty for random image)</span>
@@ -28,12 +27,15 @@
             <button class="btn" @click="backgroundImage = ''">Reset</button>
           </label>
         </div>
+        <hr class="my-6 opacity-20">
         <h1 class="font-bold text-xl mb-2 mt-4">Name</h1>
         <div class="form-control w-full">
           <div class="flex flex-row space-x-2">
             <input v-model="username" type="text" placeholder="(ex. Cagemaster)" class="input input-bordered w-full max-w-xs" />
           </div>
         </div>
+        <hr class="my-6 opacity-20">
+
         <h1 class="font-bold text-xl mb-2 mt-4">More settings</h1>
         <div class="form-control">
           <label class="label cursor-pointer w-48">
@@ -57,7 +59,12 @@
           <label class="label">Image opacity</label>
           <input type="range" min="0" max="100" v-model="imageOpacity" class="range" />
         </div>
+        <hr class="my-6 opacity-20">
+
         <h1 class="text-xl font-bold mb-2 mt-4">Plex Widget</h1>
+        <p>
+          The plex widget enables you to see current streams on your server. Due to SSL certificates you'll need to supply a SSL certified Plex domain like <code>https://plex.domain.com</code>, or if you host this startpage without SSL you can just supply the external IP address and port of your Plex server like so: <code>http://EXTERNAL_IP:32400</code>.
+        </p>
         <div class="form-control">
           <label class="label">
             <span class="label-text">Plex server token</span>
