@@ -28,13 +28,13 @@
             <button class="btn" @click="backgroundImage = ''">Reset</button>
           </label>
         </div>
-        <h1 class="font-bold text-xl my-2">Name</h1>
+        <h1 class="font-bold text-xl mb-2 mt-4">Name</h1>
         <div class="form-control w-full">
           <div class="flex flex-row space-x-2">
             <input v-model="username" type="text" placeholder="(ex. Cagemaster)" class="input input-bordered w-full max-w-xs" />
           </div>
         </div>
-        <h1 class="font-bold text-xl my-2">More settings</h1>
+        <h1 class="font-bold text-xl mb-2 mt-4">More settings</h1>
         <div class="form-control">
           <label class="label cursor-pointer w-48">
             <span class="label-text">Show search bar</span> 
@@ -57,7 +57,24 @@
           <label class="label">Image opacity</label>
           <input type="range" min="0" max="100" v-model="imageOpacity" class="range" />
         </div>
-          <div class="modal-action">
+        <h1 class="text-xl font-bold mb-2 mt-4">Plex Widget</h1>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Plex server token</span>
+          </label>
+          <label class="input-group">
+            <input v-model="plexToken" type="text" placeholder="(ex. g432YRTEWy5g454ytrgQ)" class="flex-1 input input-bordered" />
+          </label>
+        </div>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Plex server URL and port</span>
+          </label>
+          <label class="input-group">
+            <input v-model="plexURL" type="text" placeholder="(ex. http://<PUBLIC_URL>:32400)" class="flex-1 input input-bordered" />
+          </label>
+        </div>
+        <div class="modal-action">
           <label for="settings-modal" class="btn mr-auto bg-red-900 text-white" @click="clearAllData">Clear all data</label>
           <label for="settings-modal" class="btn">Cancel</label>
           <label for="settings-modal" class="btn btn-secondary" @click="save">Save</label>
@@ -80,6 +97,8 @@ const showDate = ref(store.showDate)
 const showClock = ref(store.showClock)
 const backgroundImage = ref(store.backgroundImage)
 const imageOpacity = ref(store.getImageOpacity)
+const plexToken = ref(store.plexToken)
+const plexURL = ref(store.plexURL)
 
 const save = () => {
   store.setImage(image.value)
@@ -89,6 +108,8 @@ const save = () => {
   store.setShowClock(showClock.value)
   store.setBackgroundImage(backgroundImage.value)
   store.setImageOpacity(imageOpacity.value)
+  store.setPlexToken(plexToken.value)
+  store.setPlexURL(plexURL.value)
 }
 
 const disableEdit = () => {
