@@ -5,7 +5,7 @@
       <div class="flex flex-col text-white">
         <span class="text-xs">{{s.artist}}</span>
         <span class="font-bold">{{s.title}}</span>
-        <span class="text-sm opacity-50">{{s.type}}</span>
+        <span class="text-xs opacity-50">{{s.type}}</span>
       </div>
     </div>
   </div>
