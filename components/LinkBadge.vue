@@ -1,39 +1,62 @@
 <template>
-  <nuxt-link :to="url" v-if="!edit">
+  <nuxt-link :to="link.url" v-if="!edit" @contextmenu="openContext($event)">
     <div class="whitespace-nowrap flex items-center group badge bg-primary p-4 m-1 text-center border-0 text-white cursor-pointer hover:opacity-80 overflow-hidden" :style="style">
-      {{ name }}
+      {{ link.name }}
       <span class="hidden group-hover:flex ml-2 items-center">
         <Icon name="ei:external-link" />
       </span>
     </div>
   </nuxt-link>
-  <div v-show="edit">
-    <div class="whitespace-nowrap badge bg-primary py-4 pl-4 pr-0 m-1 text-center border-0 text-white cursor-pointer" :style="style">
-        {{ name }}
-      <button @click="removeSelf(name)" class="ml-4 btn btn-circle  border-0 min-h-6 h-7 w-7 transition-all mr-1">
-        <Icon name="material-symbols:close" />
-      </button>
-    </div>
-  </div>
+  <EditLinkModal v-if="editSelf" :link="link" :onClose="closeAndEdit" />
+  <ContextMenu v-if="contextOpen" :x="posX" :y="posY" @close="contextOpen = false" :actions="actions"/>
 </template>
 
 <script lang="ts" setup>
 import { useSettingsStore } from '@/stores/settings'
 import { useLinksStore } from '@/stores/links'
+import { ContextAction, Link } from '~~/types/types'
+import { useMouse } from '@vueuse/core'
 
+const { x, y } = useMouse()
+
+const posX = ref(0)
+const posY = ref(0)
 const linkStore = useLinksStore()
 const settingStore = useSettingsStore()
+const editSelf = ref(false)
+const edit = ref(false)
+const contextOpen = ref(false)
 
-const { name, url, color } = defineProps<{
-  name: string
-  url?: string
-  color?: string
+const actions: ContextAction[] = [
+  {
+    name: 'Edit',
+    fn: () => editSelf.value = true
+  },
+  {
+    name: 'Remove',
+    fn: () => linkStore.removeLinkByName(link.name)
+  }
+]
+
+const closeAndEdit = () => {
+  editSelf.value = false
+}
+
+const openContext = (e: MouseEvent) => {
+  e.preventDefault()
+  posX.value = x.value
+  posY.value = y.value
+  contextOpen.value = true
+}
+
+const { link } = defineProps<{
+  link: Link
 }>()
 
 const style = computed(() => {
-  if(color !== '' && color !== undefined && color !== null) {
+  if(link.color !== '' && link.color !== undefined && link.color !== null) {
     return {
-      backgroundColor: color
+      backgroundColor: link.color
     }
   }
   return {
@@ -41,12 +64,9 @@ const style = computed(() => {
   }
 })
 
-const edit = ref(false)
-
 watch(
   () => settingStore.edit,
   (newEdit: boolean) => {
-    console.log(newEdit)
     edit.value = newEdit
   }
 )

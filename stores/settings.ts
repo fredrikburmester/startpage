@@ -12,10 +12,18 @@ export const useSettingsStore = defineStore('settings', {
       showClock: useStorage('showClock', true),
       backgroundImage: useStorage('backgroundImage', ''),
       imageOpacity: useStorage('imageOpacity', 50),
+      plexToken: useStorage('plexToken', ''),
+      plexURL: useStorage('plexURL', ''),
   }),
   actions: {
     setImage(l: string) {
       this.image = l
+    },
+    setPlexURL(u: string) {
+      this.plexURL = u
+    },
+    setPlexToken(t: string) {
+      this.plexToken = t
     },
     setImageOpacity(p: number) {
       this.imageOpacity = p

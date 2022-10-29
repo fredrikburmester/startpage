@@ -4,3 +4,7 @@ export interface Link {
   color: string
   group?: string
 }
+export interface ContextAction {
+  name: string
+  fn: () => void
+}
