@@ -7,17 +7,6 @@
       </span>
     </div>
   </nuxt-link>
-  <div v-show="edit">
-    <div class="whitespace-nowrap badge bg-primary py-4 pl-4 pr-0 m-1 text-center border-0 text-white cursor-pointer" :style="style">
-        {{ link.name }}
-      <button @click="editSelf = true" class="ml-4 btn btn-circle  border-0 min-h-6 h-7 w-7 transition-all mr-1">
-        <Icon name="material-symbols:edit-note"  />
-      </button>
-      <button @click="removeSelf(link.name)" class="ml-4 btn btn-circle  border-0 min-h-6 h-7 w-7 transition-all mr-1">
-        <Icon name="material-symbols:close" />
-      </button>
-    </div>
-  </div>
   <EditLinkModal v-if="editSelf" :link="link" :onClose="closeAndEdit" />
   <ContextMenu v-if="contextOpen" :x="posX" :y="posY" @close="contextOpen = false" :actions="actions"/>
 </template>
