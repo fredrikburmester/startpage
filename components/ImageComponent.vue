@@ -1,6 +1,6 @@
 <template>
-  <div style="max-height: 100%;" class="rounded-3xl max-h-[calc(30vh)]">
-    <img class="w-100 h-100 object-contain" :style="`opacity: ${imageOpacity / 100}`" @load="loading = false" :src="image" alt="image" />
+  <div style="max-height: 100%;" class="rounded-3xl max-h-[calc(30vh)] flex justify-items-center items-center">
+    <img class="w-100 h-100 object-contain rounded-3xl" :style="`opacity: ${imageOpacity / 100}`" @load="loading = false" :src="image" alt="image" />
   </div>
 </template>
 <script lang="ts" setup>
@@ -17,7 +17,6 @@ const images = ['https://mj-gallery.com/2812b085-5451-4cfe-a511-b797a8adb6fb/gri
 'https://mj-gallery.com/f7b965ff-71eb-4e75-b788-1651c20cdcd5/grid_0.png',
 'https://mj-gallery.com/c4bd6b31-5824-4f86-a6a1-9c4408f7c091/grid_0.png',
 'https://mj-gallery.com/c30016e1-ca57-4b19-840b-21b5e9c05a83/grid_0.png',
-'https://mj-gallery.com/86342fe3-26d3-4f92-b245-a2c50beaee0c/grid_0.png',
 'https://mj-gallery.com/f433feae-fb29-44ca-9712-4cf538bf6e8e/grid_0.png']
 
 const store = useSettingsStore()
