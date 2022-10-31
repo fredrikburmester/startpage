@@ -81,6 +81,14 @@
             <input v-model="plexURL" type="text" placeholder="(ex. https://plex.domain.com)" class="flex-1 input input-bordered" />
           </label>
         </div>
+        <div class="form-control">
+          <label class="label">Update interval</label>
+          <input type="range" min="10" max="60" step="10" v-model="plexUpdateInterval" class="range" />
+          <div class="w-full flex justify-between text-xs px-2">
+            <span v-for="i in 6">{{ i * 10 }}s</span>
+          </div>
+          <label class="label text-xs italic opacity-80">Requires reload of page</label>
+        </div>
         <div class="modal-action">
           <label for="settings-modal" class="btn mr-auto bg-red-900 text-white" @click="clearAllData">Clear all data</label>
           <label for="settings-modal" class="btn">Cancel</label>
@@ -106,6 +114,10 @@ const backgroundImage = ref(store.backgroundImage)
 const imageOpacity = ref(store.getImageOpacity)
 const plexToken = ref(store.plexToken)
 const plexURL = ref(store.plexURL)
+const plexUpdateInterval = ref(computed({
+  get: () => store.plexUpdateInterval,
+  set: (value: number) => store.setPlexUpdateInterval(value)
+}))
 
 const save = () => {
   store.setImage(image.value)
@@ -130,3 +142,10 @@ const clearAllData = () => {
 }
 
 </script>
+
+<style>
+.form-control {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+</style>

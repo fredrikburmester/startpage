@@ -28,8 +28,6 @@ const getPlexData = async () => {
     initialCache: false,
   })
 
-  console.log(data.value)
-
   if(!window.DOMParser || !data) return
 
   const parser = new DOMParser();
@@ -72,8 +70,6 @@ const getPlexData = async () => {
     })
     index++
   }
-
-  console.log(sessions.value)
 }
 
 onMounted(() => {
@@ -82,19 +78,4 @@ onMounted(() => {
     getPlexData()
   }, updateInterval.value)
 })
-
-// async function waitInterval(callback, ms) {
-//     return new Promise(resolve => {
-//         let iteration = 0;
-//         const interval = setInterval(async () => {
-//             await callback(iteration++, interval);
-//             iteration++;
-//         }, ms);
-//     });
-// }
-
-// (async () => {
-//   await waitInterval(getPlexData, 5000)
-// })()
-
 </script>

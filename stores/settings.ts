@@ -50,6 +50,9 @@ export const useSettingsStore = defineStore('settings', {
     setShowClock(val: boolean) {
       this.showClock = val
     },
+    setPlexUpdateInterval(val: number) {
+      this.plexUpdateInterval = val
+    },
     clearAllData() {
       this.image = this.defaultImage
       this.username = ''
