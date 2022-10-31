@@ -106,7 +106,7 @@ const store = useSettingsStore()
 const linksStore = useLinksStore()
 
 const image = ref<string>(store.getImage)
-const username = ref<string>()
+const username = ref<string>(store.username)
 const searchbar = ref(store.searchbar)
 const showDate = ref(store.showDate)
 const showClock = ref(store.showClock)
