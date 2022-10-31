@@ -12,67 +12,89 @@
 </template>
 
 <script lang="ts" setup>import { useSettingsStore } from '~~/stores/settings'
-
-interface Session {
-  id: number,
-  artist: string,
-  title: string,
-  type: string,
-  art: string
-}
+import { Session } from '~~/types/types'
 
 const settingsStore = useSettingsStore()
 
-const plexURL = ref<string>(settingsStore.plexURL)
-const plexToken = ref<string>(settingsStore.plexToken)
+const plexURL = ref(computed(() => settingsStore.plexURL))
+const plexToken = ref(computed(() => settingsStore.plexToken))
+const updateInterval = ref(computed(() => settingsStore.plexUpdateInterval * 1000))
 const totalSessions = ref<number>(0)
-
 const sessions = ref<Session[]>([])
-
-// Get sessions
 const sessionsURL = ref('/status/sessions')
-const { data } = await useFetch(plexURL.value + sessionsURL.value + '?X-Plex-Token=' + plexToken.value)
 
-if (window.DOMParser && data) {
-    const parser = new DOMParser();
-    // @ts-ignore 
-    const xmlDoc = parser.parseFromString(data.value, "text/xml");
-    const tracks = xmlDoc.getElementsByTagName("Track").length
-    const videos = xmlDoc.getElementsByTagName("Video").length
+const getPlexData = async () => {
+  const { data } = await useFetch(plexURL.value + sessionsURL.value + '?X-Plex-Token=' + plexToken.value, {
+    initialCache: false,
+  })
 
-    totalSessions.value = tracks + videos
+  console.log(data.value)
 
-    console.log(xmlDoc)
+  if(!window.DOMParser || !data) return
 
-    for (let i = 0; i < tracks; i++) {
-      const artist = xmlDoc.getElementsByTagName("Track")[i].getAttribute('grandparentTitle')
-      const title = xmlDoc.getElementsByTagName("Track")[i].getAttribute('parentTitle')
-      const id = xmlDoc.getElementsByTagName("Track")[i].getAttribute('index')
-      const type = xmlDoc.getElementsByTagName("Track")[i].getAttribute('librarySectionTitle')
-      const art = xmlDoc.getElementsByTagName("Track")[i].getAttribute('parentThumb')
-      sessions.value.push({
-        id: parseInt(id), 
-        artist: artist, 
-        title: title, 
-        type: type, 
-        art: art})
-    }
-    
-    for (let i = 0; i < videos; i++) {
-      const name = xmlDoc.getElementsByTagName("Video")[i].getAttribute('grandparentTitle')
-      const title = xmlDoc.getElementsByTagName("Video")[i].getAttribute('title')
-      const id = xmlDoc.getElementsByTagName("Video")[i].getAttribute('index')
-      const type = xmlDoc.getElementsByTagName("Video")[i].getAttribute('librarySectionTitle')
-      const art = xmlDoc.getElementsByTagName("Video")[i].getAttribute('art')
-      sessions.value.push({
-        id: parseInt(id),
-        artist: name || '', 
-        title: title, 
-        type: type, 
-        art: art
-      })
-    }
+  const parser = new DOMParser();
+  // @ts-ignore 
+  const xmlDoc = parser.parseFromString(data.value, "text/xml");
+  const tracks = xmlDoc.getElementsByTagName("Track").length
+  const videos = xmlDoc.getElementsByTagName("Video").length
 
+  totalSessions.value = tracks + videos
+
+  // Empty sessions array
+  sessions.value = []
+  let index = 0
+
+  for (let i = 0; i < tracks; i++) {
+    const artist = xmlDoc.getElementsByTagName("Track")[i].getAttribute('grandparentTitle')
+    const title = xmlDoc.getElementsByTagName("Track")[i].getAttribute('parentTitle')
+    const type = xmlDoc.getElementsByTagName("Track")[i].getAttribute('librarySectionTitle')
+    const art = xmlDoc.getElementsByTagName("Track")[i].getAttribute('parentThumb')
+    sessions.value.push({
+      id: index, 
+      artist: artist, 
+      title: title, 
+      type: type, 
+      art: art})
+    index++
+  }
+
+  for (let j = 0; j < videos; j++) {
+    const name = xmlDoc.getElementsByTagName("Video")[j].getAttribute('grandparentTitle')
+    const title = xmlDoc.getElementsByTagName("Video")[j].getAttribute('title')
+    const type = xmlDoc.getElementsByTagName("Video")[j].getAttribute('librarySectionTitle')
+    const art = xmlDoc.getElementsByTagName("Video")[j].getAttribute('art')
+    sessions.value.push({
+      id: index,
+      artist: name || '', 
+      title: title, 
+      type: type, 
+      art: art
+    })
+    index++
+  }
+
+  console.log(sessions.value)
 }
+
+onMounted(() => {
+  getPlexData()
+  setInterval(() => {
+    getPlexData()
+  }, updateInterval.value)
+})
+
+// async function waitInterval(callback, ms) {
+//     return new Promise(resolve => {
+//         let iteration = 0;
+//         const interval = setInterval(async () => {
+//             await callback(iteration++, interval);
+//             iteration++;
+//         }, ms);
+//     });
+// }
+
+// (async () => {
+//   await waitInterval(getPlexData, 5000)
+// })()
 
 </script>
