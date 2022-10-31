@@ -23,7 +23,7 @@
           </label>
           <input v-model="group"  type="text" placeholder="(ex. Productivity)" class="input input-bordered w-full max-w-xs" >
           <div class="mt-2 flex flex-row flex-wrap">
-            <span v-for="g in groups" class="badge cursor-pointer mr-1 mb-1" @click="group = g">{{g}}</span>
+            <span v-for="g in groups" class="badge cursor-pointer mr-1 mb-1 border-none" @click="group = g">{{g}}</span>
           </div>
           <label class="label">
             <span class="label-text">Color</span>
@@ -32,7 +32,7 @@
 
           <div class="mt-2 flex flex-row flex-wrap">
             <span class="badge cursor-pointer mr-1 mb-1" @click="color = ''">Follow theme</span>
-            <span v-for="c in colors" class="badge cursor-pointer mr-1 mb-1" :style="`background-color: ${c.color}`" @click="color = c.color" >{{ c.name }}</span>
+            <span v-for="c in colors" class="badge cursor-pointer mr-1 mb-1 border-none" :style="`background-color: ${c.color}`" @click="color = c.color" >{{ c.name }}</span>
           </div>
 
         </div>
