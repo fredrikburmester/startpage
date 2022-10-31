@@ -1,14 +1,16 @@
 <template>
-  <nuxt-link :to="link.url" v-if="!edit" @contextmenu="openContext($event)">
-    <div class="whitespace-nowrap flex items-center group badge bg-primary p-4 m-1 text-center border-0 text-white cursor-pointer hover:opacity-80 overflow-hidden" :style="style">
-      {{ link.name }}
-      <span class="hidden group-hover:flex ml-2 items-center">
-        <Icon name="ei:external-link" />
-      </span>
-    </div>
-  </nuxt-link>
-  <EditLinkModal v-if="editSelf" :link="link" :onClose="closeAndEdit" />
-  <ContextMenu v-if="contextOpen" :x="posX" :y="posY" @close="contextOpen = false" :actions="actions"/>
+  <div>
+    <nuxt-link :to="link.url" v-if="!edit" @contextmenu="openContext($event)">
+      <div class="whitespace-nowrap flex items-center group badge bg-primary p-4 m-1 text-center border-0 text-white cursor-pointer hover:opacity-80 overflow-hidden" :style="style">
+        {{ link.name }}
+        <span class="hidden group-hover:flex ml-2 items-center">
+          <Icon name="ei:external-link" />
+        </span>
+      </div>
+    </nuxt-link>
+    <EditLinkModal v-if="editSelf" :link="link" :onClose="closeModal" />
+    <ContextMenu v-if="contextOpen" :x="posX" :y="posY" @close="contextOpen = false" :actions="actions"/>
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -22,7 +24,6 @@ const { x, y } = useMouse()
 const posX = ref(0)
 const posY = ref(0)
 const linkStore = useLinksStore()
-const settingStore = useSettingsStore()
 const editSelf = ref(false)
 const edit = ref(false)
 const contextOpen = ref(false)
@@ -38,7 +39,7 @@ const actions: ContextAction[] = [
   }
 ]
 
-const closeAndEdit = () => {
+const closeModal = () => {
   editSelf.value = false
 }
 
@@ -63,16 +64,5 @@ const style = computed(() => {
     
   }
 })
-
-watch(
-  () => settingStore.edit,
-  (newEdit: boolean) => {
-    edit.value = newEdit
-  }
-)
-
-const removeSelf = (name: string) => {
-  linkStore.removeLinkByName(name)
-}
 
 </script>

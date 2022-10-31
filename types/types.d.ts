@@ -2,7 +2,7 @@ export interface Link {
   name: string
   url: string
   color: string
-  group?: string
+  group: string
 }
 export interface ContextAction {
   name: string

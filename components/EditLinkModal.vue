@@ -84,21 +84,16 @@ const color = ref<string>(link.color)
 const group = ref<string>(link.group)
 
 const saveLink = () => {
-  console.log("save link")
-
   const existingLink = store.links.find((l: Link) => l.name === link.name)
   if(existingLink) {
-    console.log("link already exists", existingLink, name.value)
     const l: Link = {
       'name': name.value,
       'url': url.value,
       'color': color.value,
       'group': group.value !== '' ? group.value : 'Other'
     }
-    // This will close the modal since we're re-rendering the link
-    onClose
     store.editLink(link, l)
   } 
-  onClose
+  onClose()
 }
 </script>

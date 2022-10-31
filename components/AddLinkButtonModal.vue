@@ -66,8 +66,8 @@ const colors = [
     color: '#059669'
   },
   {
-    name: 'Yellow',
-    color: '#fbbf24'
+    name: 'Orange',
+    color: '#F6821E'
   },
   {
     name: 'Purple',
@@ -84,12 +84,12 @@ const colors = [
   {
     name: 'Black',
     color: '#111827'
-  }
+  },
+
 ]
 
 const store = useLinksStore()
 const settingsStore = useSettingsStore()
-
 
 const name = ref<string>('')
 const url = ref<string>('')
