@@ -43,6 +43,12 @@ Current features:
 
 The plex widget enables you to see current streams on your server. Due to SSL certificates you'll need to supply a SSL certified Plex domain like `https://plex.domain.com`, or if you host this startpage without SSL you can just supply the external IP address and port of your Plex server like so: `http://<EXTERNAL_IP>:32400`.
 
+### Weather
+
+![Weather](assets/weather-widget.png)
+
+The weather widget enables you to see the current weather. The weather is fetched from [OpenWeatherMap](https://openweathermap.org/). You'll need to supply an API key from OpenWeatherMap long and lat coordinates.
+
 ## 🐞 Bugs
 
 Sometimes all it takes is a reload of the page to fix!
@@ -89,7 +95,3 @@ Locally preview production build:
 ```bash
 yarn preview
 ```
-
-
-
-
