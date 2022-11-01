@@ -16,8 +16,7 @@ const images = ['https://mj-gallery.com/2812b085-5451-4cfe-a511-b797a8adb6fb/gri
 'https://mj-gallery.com/83283aaa-44db-4f5c-b5e9-8a5aa5559a9d/grid_0.png',
 'https://mj-gallery.com/f7b965ff-71eb-4e75-b788-1651c20cdcd5/grid_0.png',
 'https://mj-gallery.com/c4bd6b31-5824-4f86-a6a1-9c4408f7c091/grid_0.png',
-'https://mj-gallery.com/c30016e1-ca57-4b19-840b-21b5e9c05a83/grid_0.png',
-'https://mj-gallery.com/f433feae-fb29-44ca-9712-4cf538bf6e8e/grid_0.png']
+'https://mj-gallery.com/c30016e1-ca57-4b19-840b-21b5e9c05a83/grid_0.png',]
 
 const store = useSettingsStore()
 
