@@ -5,21 +5,21 @@
     <input type="checkbox" id="my-modal-6" class="modal-toggle" @click="disableEdit"/>
     <div class="modal modal-bottom sm:modal-middle">
       <div class="modal-box">
-        <h3 class="font-bold text-lg">Add a link button</h3>
-        <p class="py-4">Here you can add a new button with any link, text and color you want. Make sure the link starts with
-            <code class="bg-primary rounded p-1 text-sm">https://</code> and that the color is a hex code.
+        <h3 class="font-bold text-3xl">Add a badge</h3>
+        <p class="">Here you can add a new button with any link, text and color you want. Make sure the link starts with
+            <code class="bg-primary rounded p-1 text-sm">https://</code> and that the color is a hex code. You can change a badge after the fact by right clicking it.
         </p>
         <div class="form-control w-full max-w-xs">
           <label class="label">
-            <span class="label-text">Link name</span>
+            <span class="label-text">Badge name</span>
           </label>
           <input v-model="name" type="text" placeholder="(ex. Github)" class="input input-bordered w-full max-w-xs" >
           <label class="label">
-            <span class="label-text">Link url</span>
+            <span class="label-text">URL</span>
           </label>
           <input v-model="url"  type="text" placeholder="(ex. https://github.com)" class="input input-bordered w-full max-w-xs" >
           <label class="label">
-            <span class="label-text">Group</span>
+            <span class="label-text">Category</span>
           </label>
           <input v-model="group"  type="text" placeholder="(ex. Productivity)" class="input input-bordered w-full max-w-xs" >
           <div class="mt-2 flex flex-row flex-wrap">
@@ -32,7 +32,7 @@
 
           <div class="mt-2 flex flex-row flex-wrap">
             <span class="badge cursor-pointer mr-1 mb-1" @click="color = ''">Follow theme</span>
-            <span v-for="c in colors" class="badge cursor-pointer mr-1 mb-1 border-none" :style="`background-color: ${c.color}`" @click="color = c.color" >{{ c.name }}</span>
+            <span v-for="c in colors" class="badge cursor-pointer mr-2 mb-2 border-none text-white" :style="`background-color: ${c.color}`" @click="color = c.color" >{{ c.name }}</span>
           </div>
 
         </div>
