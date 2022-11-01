@@ -51,7 +51,7 @@ import { useAlertStore } from '~~/stores/alert'
 import { useSettingsStore } from '~~/stores/settings'
 import { Link } from '~~/types/types'
 
-const groups = ['Productivity', 'School', 'Work', 'Home', 'Entertainment', 'Other']
+const groups = ['Productivity', 'School', 'Work', 'Home', 'Entertainment', 'Server', 'Training', 'Other']
 const colors = [
   {
     name: 'Red',
@@ -60,6 +60,14 @@ const colors = [
   {
     name: 'Blue',
     color: '#2563eb'
+  },
+  {
+    name:'Blue',
+    color: '#166088'
+  },
+  {
+    name: 'Blue',
+    color: '#161925'
   },
   {
     name: 'Green',
@@ -74,6 +82,10 @@ const colors = [
     color: '#8b5cf6'
   },
   {
+    name: 'Purple',
+    color: '#7D83FF'
+  },
+  {
     name: 'Pink',
     color: '#ec4899'
   },
@@ -85,6 +97,32 @@ const colors = [
     name: 'Black',
     color: '#111827'
   },
+  {
+    name: 'Black',
+    color: '#000000'
+  },
+  {
+    name: 'Navy Blue',
+    color: '#0D3B66'
+  },
+  {
+    name: 'Lime',
+    color: '#31D843'
+  },
+  {
+    name: 'Brown',
+    color: '#AF7A6D'
+  },
+  {
+    name: 'Brown',
+    color: '#653239'
+  },
+  {
+    name: 'Blue Gray',
+    color: '#4F6D7A'
+  },
+  
+
 
 ]
 
