@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <p class="text-2xl" ref="dateRef">{{dateString}}</p>
-  </div>
+  <p class="text-xl" ref="dateRef">{{dateString}}</p>
 </template>
 
 <script lang="ts" setup>

@@ -17,7 +17,6 @@ const background = computed(() => settingsStore.getBackgroundImage)
 const main = ref(null)
 
 onMounted(() => {
-  console.log(background.value)
   main.value.style.backgroundImage = `url(${background.value})`
   main.value.style.backgroundSize = 'cover'
 })

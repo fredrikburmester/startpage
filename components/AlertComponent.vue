@@ -20,10 +20,6 @@ const alert = ref<boolean>(alertStore.getAlertStatus())
 const alertMessage = computed(() => alertStore.alertMessage)
 const alertType = computed(() => alertStore.alertType)
 
-onMounted(() => {
-  console.log(alertStore.alert)
-})
-
 watch(() => alertStore.alert, (newAlert: boolean) => {
   alert.value = newAlert
 })
