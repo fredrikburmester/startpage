@@ -3,6 +3,7 @@
     <div class="grid grid-cols-1 md:grid-cols-6 md:grid-rows-1 items-center gap-2 md:gap-16 py-16 xl:py-24 max-h-screen">
       <ImageComponent class="overflow-clip h-[calc(40vh)] md:h-full md:col-span-2"/>
       <div class="flex flex-col space-y-2 min-w-[calc(50%)] items-start mt-4 md:mt-0 justify-between md:col-span-4 self-start">
+        <WeatherComponent />
         <SearchBar v-if="showSearchBar" />
         <h1 class="font-bold text-4xl md:text-5xl">{{ useGreetingText() }} {{ username }}</h1>
         <DateComponent v-if="showDate" />
