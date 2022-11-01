@@ -89,6 +89,33 @@
           </div>
           <label class="label text-xs italic opacity-80">Requires reload of page</label>
         </div>
+        <h1 class="text-xl font-bold mb-2 mt-4">Weather Widget</h1>
+        <p>
+        </p>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Open Weather API token</span>
+          </label>
+          <label class="input-group">
+            <input v-model="weatherToken" type="text" placeholder="(ex. g432YRTEWy5g454ytrgQ)" class="flex-1 input input-bordered" />
+          </label>
+        </div>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Latitude</span>
+          </label>
+          <label class="input-group">
+            <input v-model="weatherLat" type="text" placeholder="(ex. g432YRTEWy5g454ytrgQ)" class="flex-1 input input-bordered" />
+          </label>
+        </div>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Longitude</span>
+          </label>
+          <label class="input-group">
+            <input v-model="weatherLon" type="text" placeholder="(ex. g432YRTEWy5g454ytrgQ)" class="flex-1 input input-bordered" />
+          </label>
+        </div>
         <div class="modal-action">
           <label for="settings-modal" class="btn mr-auto bg-red-900 text-white" @click="clearAllData">Clear all data</label>
           <label for="settings-modal" class="btn">Cancel</label>
@@ -102,8 +129,10 @@
 <script lang="ts" setup>
 import { useSettingsStore } from '@/stores/settings'
 import { useLinksStore } from '~~/stores/links'
+import { useWeatherStore } from '~~/stores/weather'
 const store = useSettingsStore()
 const linksStore = useLinksStore()
+const weatherStore = useWeatherStore()
 
 const image = ref<string>(store.getImage)
 const username = ref<string>(store.username)
@@ -117,6 +146,18 @@ const plexURL = ref(store.plexURL)
 const plexUpdateInterval = ref(computed({
   get: () => store.plexUpdateInterval,
   set: (value: number) => store.setPlexUpdateInterval(value)
+}))
+const weatherToken = ref(computed({
+  get: () => weatherStore.token,
+  set: (value: string) => weatherStore.setToken(value)
+}))
+const weatherLat = ref(computed({
+  get: () => weatherStore.lat,
+  set: (value: number) => weatherStore.setLat(value)
+}))
+const weatherLon = ref(computed({
+  get: () => weatherStore.lon,
+  set: (value: number) => weatherStore.setLon(value)
 }))
 
 const save = () => {
