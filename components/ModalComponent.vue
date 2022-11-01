@@ -30,7 +30,7 @@ import { useSettingsStore } from '@/stores/settings'
 
 const props = defineProps<{
   onConfirm?: () => void
-  onClose: () => void
+  onClose?: () => void
   open: boolean
   confirm: string
   cancel: string

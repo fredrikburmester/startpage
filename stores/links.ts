@@ -4,7 +4,7 @@ import { Link } from '~~/types/types'
 
 export const useLinksStore = defineStore('links', {
   state: () => ({
-      count: 4,
+      linkChanged: 0,
       defaultLinks: [
         {
           name: 'Nuxt',
@@ -59,27 +59,28 @@ export const useLinksStore = defineStore('links', {
   actions: {
     addLink(link: Link) {
       this.links.push(link)
-      this.count += 1
+      this.linkChanged += 1
     },
     removeLinkByName(name: string) {
       this.links = this.links.filter((l: Link) => l.name !== name)
-      this.count -= 1
+      this.linkChanged += 1
     },
     clearAllData() {
       this.links = this.defaultLinks
-      this.count = 4
+      this.linkChanged = 0
     },
     editLink(ol: Link, nl: Link) {
       const index = this.links.findIndex((link: Link) => link.name === ol.name)
       this.links[index] = nl
+      this.linkChanged += 1
     }
   },
   getters: {
     getLinks() {
       return this.links
     },
-    getUniqueGroups() {
-      return [...new Set(this.links.map((l: Link) => l.group))]
+    getUniqueGroups(): string[] {
+      return [...new Set(this.links.map((l: Link) => l.group))] as string[]
     }
   }
 })

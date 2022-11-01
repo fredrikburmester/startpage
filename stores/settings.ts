@@ -14,6 +14,7 @@ export const useSettingsStore = defineStore('settings', {
       imageOpacity: useStorage('imageOpacity', 50),
       plexToken: useStorage('plexToken', ''),
       plexURL: useStorage('plexURL', ''),
+      plexUpdateInterval: useStorage('plexUpdateInterval', 30),
   }),
   actions: {
     setImage(l: string) {
@@ -48,6 +49,9 @@ export const useSettingsStore = defineStore('settings', {
     },
     setShowClock(val: boolean) {
       this.showClock = val
+    },
+    setPlexUpdateInterval(val: number) {
+      this.plexUpdateInterval = val
     },
     clearAllData() {
       this.image = this.defaultImage

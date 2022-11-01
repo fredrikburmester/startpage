@@ -3,12 +3,12 @@
     <div class="grid grid-cols-1 md:grid-cols-6 md:grid-rows-1 items-center gap-2 md:gap-16 py-16 xl:py-24 max-h-screen">
       <ImageComponent class="overflow-clip h-[calc(40vh)] md:h-full md:col-span-2"/>
       <div class="flex flex-col space-y-2 min-w-[calc(50%)] items-start mt-4 md:mt-0 justify-between md:col-span-4 self-start">
-        <SearchBar v-if="settingsStore.searchbar" />
+        <SearchBar v-if="showSearchBar" />
         <h1 class="font-bold text-4xl md:text-5xl">{{ useGreetingText() }} {{ username }}</h1>
-        <DateComponent v-if="settingsStore.showDate" />
-        <ClockComponent v-if="settingsStore.showClock" />
-        <div class="flex flex-row overflow-x-scroll" style="max-width: -webkit-fill-available;">
-          <div v-for="c in uniqueCategories" class="flex flex-col flex-wrap justify-items-start mr-4" :key="c">
+        <DateComponent v-if="showDate" />
+        <ClockComponent v-if="showClock" />
+        <div class="flex flex-row overflow-x-scroll" style="max-width: -webkit-fill-available;" :key="store.linkChanged">
+          <div v-for="c in uniqueCategories" class="flex flex-col flex-wrap justify-items-start mr-4">
             <h1 class="text-xl p-1">{{ c }}</h1>
             <LinkBadge v-for="l in links.filter(l => l.group == c)" :key="l.name" :link="l" />
           </div>
@@ -22,21 +22,14 @@
 <script setup lang="ts">
 import { useLinksStore } from '@/stores/links'
 import { useSettingsStore } from '~~/stores/settings';
-import { Link } from '~~/types/types'
 const store = useLinksStore()
 const settingsStore = useSettingsStore()
-const uniqueCategories = ref(store.getUniqueGroups)
-const username = ref<string>(settingsStore.username)
-const links = ref<Link[]>(store.getLinks)
-
-watch(() => settingsStore.username, (name) => {username.value = name})
-watch(() => settingsStore.searchbar, () => {})
-watch(() => settingsStore.showDate, () => {})
-watch(() => settingsStore.showClock, () => {})
-watch(() => store.count, () => {
-  uniqueCategories.value = store.getUniqueGroups
-  links.value = store.getLinks
-})
+const uniqueCategories = ref(computed(() => store.getUniqueGroups))
+const username = ref(computed(() => settingsStore.username))
+const links = ref(computed(() => store.links))
+const showSearchBar = ref(computed(() => settingsStore.searchbar))
+const showDate = ref(computed(() => settingsStore.showDate))
+const showClock = ref(computed(() => settingsStore.showClock))
 </script>
 
 <style>
