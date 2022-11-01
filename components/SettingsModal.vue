@@ -105,7 +105,7 @@
             <span class="label-text">Latitude</span>
           </label>
           <label class="input-group">
-            <input v-model="weatherLat" type="text" placeholder="(ex. g432YRTEWy5g454ytrgQ)" class="flex-1 input input-bordered" />
+            <input v-model="weatherLat" type="text" placeholder="(ex. 50.23)" class="flex-1 input input-bordered" />
           </label>
         </div>
         <div class="form-control">
@@ -113,7 +113,7 @@
             <span class="label-text">Longitude</span>
           </label>
           <label class="input-group">
-            <input v-model="weatherLon" type="text" placeholder="(ex. g432YRTEWy5g454ytrgQ)" class="flex-1 input input-bordered" />
+            <input v-model="weatherLon" type="text" placeholder="(ex. 16.17)" class="flex-1 input input-bordered" />
           </label>
         </div>
         <div class="modal-action">
