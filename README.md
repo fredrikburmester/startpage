@@ -95,3 +95,15 @@ Locally preview production build:
 ```bash
 yarn preview
 ```
+
+## Docker
+
+This project is also available as a docker image (see Dockerfile).
+
+Clone this repository, cd into the repo and build the docker image:
+
+```bash
+docker build -t startpage .
+
+docker run -d -p 3000:80 startpage
+```
