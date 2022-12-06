@@ -1,6 +1,6 @@
 # Startpage
 
-This is a startpage for your browser. Think of your booring new tab page and replace it with this!
+This is a startpage for your browser. Think of your boring new tab page and replace it with this!
 
 To use this website right away, go to: <https://startpage-wr6.pages.dev/>. Or for the development version (that might be broken sometimes due to development): <https://develop.startpage-wr6.pages.dev/>
 
